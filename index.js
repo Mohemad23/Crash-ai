@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
 
-app.use(express.json());
-
-app.post("/check", (req, res) => {
-  const { id, password } = req.body;
+app.get("/check", (req, res) => {
+  const id = req.query.id;
+  const password = req.query.password;
   const idRegex = /^[0-9]{8,13}$/;
 
   if (idRegex.test(id) && password === "HIX99") {
@@ -14,6 +13,4 @@ app.post("/check", (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
-});
+app.listen(3000);
