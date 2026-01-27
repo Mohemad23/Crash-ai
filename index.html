@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Check</title>
+</head>
+<body>
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const pass = params.get("password");
+
+const idRegex = /^[0-9]{8,13}$/;
+
+if(idRegex.test(id) && pass === "HIX99"){
+    document.body.innerText = "Success";
+}else{
+    document.body.innerText = "Failed";
+}
+</script>
+</body>
+</html>
